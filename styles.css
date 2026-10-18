@@ -228,7 +228,7 @@ body {
 }
 
 .hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4.5rem); /* Size remains exactly the same */
+    font-size: 21px;
     font-weight: 700;
     letter-spacing: -1px;
     

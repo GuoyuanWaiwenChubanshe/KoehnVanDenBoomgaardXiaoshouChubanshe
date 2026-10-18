@@ -188,7 +188,7 @@ body {
 }
 
 .hero {
-    height: 100vh; /* Kept at original height */
+    height: 100vh; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -196,9 +196,22 @@ body {
     text-align: center;
     position: relative;
     padding: 0 20px;
-    
-    /* ELLIPSE GLOW: Wide enough for the title, but fades out vertically at 75% of the screen */
-    background: radial-gradient(ellipse 80% 35% at 50% 40%, rgba(141, 136, 219, 0.15) 0%, rgba(5, 5, 10, 0) 100%);
+    background: none; /* Background moved to ::before */
+    overflow: hidden;
+}
+
+/* NEW GLOW: Large enough to cover text, fades to 0 opacity well before the bottom of the screen */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1400px;
+    height: 800px;
+    background: radial-gradient(ellipse at center, rgba(141, 136, 219, 0.15) 0%, rgba(5, 5, 10, 0) 65%);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .hero-content {
@@ -219,9 +232,14 @@ body {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 700;
     letter-spacing: -1px;
-    line-height: 1.2;
+    line-height: 1.3;
     margin-bottom: 25px;
-    background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+    
+    /* Fixes text clipping bug */
+    display: inline-block; 
+    padding: 0.1em 0 0.15em 0; 
+    
+    background: linear-gradient(to bottom, #fff 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 10px 30px var(--accent-glow);

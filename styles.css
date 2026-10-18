@@ -18,7 +18,7 @@
 
 html {
     background-color: var(--bg-dark);
-    overflow-y: scroll; /* Forces scrollbar to prevent layout shifts */
+    overflow-y: scroll;
 }
 
 body {
@@ -198,8 +198,8 @@ body {
     position: relative;
     padding: 0 20px;
     
-    /* Added a final 100% stop to guarantee it fades completely to the background color */
-    background: radial-gradient(circle at center 40%, rgba(141, 136, 219, 0.15) 0%, rgba(5, 5, 10, 0) 70%, rgba(5, 5, 10, 0) 100%);
+    /* SMALLER CIRCLE: Fades out completely at 50% instead of 70% */
+    background: radial-gradient(circle at center 40%, rgba(141, 136, 219, 0.15) 0%, rgba(5, 5, 10, 0) 50%);
 }
 
 .hero-content {

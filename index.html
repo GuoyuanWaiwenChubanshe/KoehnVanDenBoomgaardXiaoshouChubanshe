@@ -50,6 +50,8 @@
 </head>
 <body>
 
+    <div class="stars-bg"></div>
+
     <div class="official-bar">
         <div class="official-bar-content">
             <img src="https://www.boomgaard.cn/images/favicon.svg" onerror="this.onerror=null; this.src='https://www.boomgaard.cn/images/favicon128.png';" alt="Boomgaard Logo" class="official-logo">
@@ -60,7 +62,6 @@
             </button>
         </div>
         
-        <!-- Dropdown Content -->
         <div class="official-dropdown" id="officialDropdown">
             <p>All official websites addresses are in the <strong class="red-highlight">boomgaard.org</strong> and <strong class="red-highlight">boomgaard.cn</strong> domain.</p>
             <a href="https://www.boomgaard.org/en-GB/legal/organisation" class="red-link" target="_blank">Visit to see all organisations and companies.</a>
@@ -78,7 +79,6 @@
 
     <main>
         <section id="home" class="hero">
-            <div class="stars-bg"></div>
             <div class="hero-content">
                 <h1>The Köhn-van den Boomgaard Fictional Writings Press.</h1>
                 <p>Welcome to the sanctuary of our imagination. Continue your journey to discover enchanting, magical stories that will capture your heart, spark your wonder, and leave you utterly captivated.</p>
@@ -141,13 +141,12 @@
   </div>
 </footer>
 
-    <script>
+<script>
         const dropdownToggle = document.getElementById('dropdownToggle');
         const officialDropdown = document.getElementById('officialDropdown');
 
         dropdownToggle.addEventListener('click', () => {
             officialDropdown.classList.toggle('active');
-            // Rotate the arrow
             const svg = dropdownToggle.querySelector('svg');
             if (officialDropdown.classList.contains('active')) {
                 svg.style.transform = 'rotate(180deg)';
@@ -185,7 +184,7 @@
         window.addEventListener('load', () => {
             document.querySelector('.hero-content').classList.add('visible');
         });
-    </script>
+</script>
 
 </body>
 </html>

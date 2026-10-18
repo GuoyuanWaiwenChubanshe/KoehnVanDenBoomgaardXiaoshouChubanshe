@@ -139,7 +139,6 @@ body {
     text-decoration: underline;
 }
 
-/* Standard flow navbar that scrolls off the page */
 .main-nav {
     position: relative;
     width: 100%;
@@ -198,8 +197,8 @@ body {
     position: relative;
     padding: 0 20px;
     
-    /* TINY CIRCLE: Fixed at 300px radius so it can NEVER touch the bottom edge */
-    background: radial-gradient(circle 300px at center 40%, rgba(141, 136, 219, 0.15) 0%, rgba(5, 5, 10, 0) 100%);
+    /* ELLIPSE GLOW: Wide enough for the title, but fades out vertically at 75% of the screen */
+    background: radial-gradient(ellipse 80% 35% at 50% 40%, rgba(141, 136, 219, 0.15) 0%, rgba(5, 5, 10, 0) 100%);
 }
 
 .hero-content {

@@ -16,11 +16,38 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-body {
+html {
     background-color: var(--bg-dark);
+}
+
+body {
+    background-color: transparent;
     color: var(--text-main);
     overflow-x: hidden;
     scroll-behavior: smooth;
+}
+
+.stars-bg {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, var(--accent), rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 160px 120px, #fff, rgba(0,0,0,0));
+    background-size: 200px 200px;
+    opacity: 0.3;
+    animation: drift 100s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes drift {
+    from { background-position: 0 0; }
+    to { background-position: -2000px 1000px; }
 }
 
 .official-bar {
@@ -112,10 +139,11 @@ body {
 }
 
 .main-nav {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    background: rgba(5, 5, 10, 0.6);
+    background: rgba(5, 5, 10, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -169,27 +197,8 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
-    padding: 0 20px;
-    background: radial-gradient(circle at center, rgba(141, 136, 219, 0.15) 0%, var(--bg-dark) 60%);
-}
-
-.stars-bg {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: 
-        radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 90px 40px, var(--accent), rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 160px 120px, #fff, rgba(0,0,0,0));
-    background-size: 200px 200px;
-    opacity: 0.3;
-    animation: drift 100s linear infinite;
-    z-index: 1;
-}
-
-@keyframes drift {
-    from { background-position: 0 0; }
-    to { background-position: -1000px 500px; }
+    padding: 80px 20px 0;
+    background: radial-gradient(circle at center, rgba(141, 136, 219, 0.15) 0%, transparent 60%);
 }
 
 .hero-content {
@@ -339,6 +348,8 @@ body {
     color: white;
     text-align: center;
     padding: 20px 10px;
+    position: relative;
+    z-index: 10;
 }
 
 .footer-top p {
@@ -365,6 +376,8 @@ body {
     align-items: center;
     padding: 8px 12px;
     font-size: 12px;
+    position: relative;
+    z-index: 10;
 }
 
 .footer-bottom a {

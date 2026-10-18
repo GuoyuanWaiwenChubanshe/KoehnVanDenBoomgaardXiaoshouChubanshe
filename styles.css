@@ -187,33 +187,35 @@ body {
     width: 100%;
 }
 
+/* HERO SECTION - NEW APPLE STYLE LAYOUT */
 .hero {
     height: 100vh; 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* Pushes content to top, middle, bottom */
     align-items: center;
     text-align: center;
     position: relative;
-    padding: 0 20px;
+    padding: 100px 20px 60px; /* Top padding for breathing room, bottom padding for button */
     background: none;
 }
 
-/* NEW GLOW: Large enough to cover text, fades to 0 opacity well before the bottom of the screen */
+/* MASSIVE GLOW: Centered and fixed size to fade out before the bottom edge */
 .hero::before {
     content: '';
     position: absolute;
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1400px;
-    height: 800px;
+    width: 2500px;
+    height: 1500px;
     background: radial-gradient(ellipse at center, rgba(141, 136, 219, 0.15) 0%, rgba(5, 5, 10, 0) 65%);
     z-index: 0;
     pointer-events: none;
 }
 
-.hero-content {
+/* Top Text Area */
+.hero-top {
     position: relative;
     z-index: 2;
     transform: translateY(30px);
@@ -222,17 +224,26 @@ body {
     max-width: 900px;
 }
 
-.hero-content.visible {
+.hero-top.visible {
     transform: translateY(0);
     opacity: 1;
 }
 
+.hero-eyebrow {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
 .hero h1 {
-    font-size: 21px;
+    font-size: clamp(2.5rem, 5vw, 4.5rem); 
     font-weight: 700;
     letter-spacing: -1px;
     
-    /* THE FIX: Increased line-height gives the box room, padding ensures the gradient covers the tail */
+    /* THE FIX: Increased line-height and padding ensure the gradient covers the tails */
     line-height: 1.45; 
     padding-bottom: 15px; 
     
@@ -248,9 +259,58 @@ body {
 .hero p {
     font-size: clamp(1.1rem, 2vw, 1.4rem);
     color: var(--text-muted);
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     line-height: 1.6;
     text-align: center;
+}
+
+/* Central Placeholder */
+.hero-placeholder {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 800px;
+    height: 40vh; 
+    border: 2px dashed rgba(141, 136, 219, 0.3);
+    border-radius: 32px;
+    background: rgba(15, 15, 25, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.hero-placeholder.visible {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.placeholder-content span {
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+/* Bottom Button */
+.hero-bottom {
+    position: relative;
+    z-index: 2;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+}
+
+.hero-bottom.visible {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .btn-primary {
@@ -430,5 +490,13 @@ body {
     .official-dropdown { 
         width: 100%; 
         position: absolute; 
+    }
+    
+    /* Mobile adjustments for the new hero layout */
+    .hero {
+        padding: 60px 20px 40px;
+    }
+    .hero-placeholder {
+        height: 30vh;
     }
 }

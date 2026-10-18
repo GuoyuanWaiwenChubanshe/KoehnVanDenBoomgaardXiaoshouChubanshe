@@ -47,354 +47,9 @@
   <link rel="alternate" hreflang="en" href="https://fiction.boomgaard.org/">
   <link rel="alternate" hreflang="en-GB" href="https://fiction.boomgaard.org/">
   <link rel="alternate" hreflang="x-default" href="https://fiction.boomgaard.org/">
-    <style>
-        /* CSS Variables */
-        :root {
-            --accent: #8D88DB; /* Original accent maintained */
-            --accent-glow: rgba(141, 136, 219, 0.4);
-            --bg-dark: #05050A;
-            --bg-panel: rgba(15, 15, 25, 0.7);
-            --text-main: #F0F0F5;
-            --text-muted: #A0A0B0;
-            --official-bg: #E6E6E6; 
-            
-            /* Specific colors for top bar */
-            --brand-red: #EE1C25;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* --- TOP OFFICIAL BAR --- */
-        .official-bar {
-            background-color: var(--official-bg);
-            color: #333;
-            font-size: 14px;
-            padding: 8px 16px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 1001;
-            font-family: Arial, sans-serif;
-        }
-
-        .official-bar-content {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .official-logo {
-            height: 16px;
-            width: auto;
-            display: block;
-        }
-
-        .brand-red-text {
-            color: var(--brand-red);
-        }
-
-        .official-bar .dropdown-btn {
-            background: none;
-            border: none;
-            color: #000; /* Changed to black */
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            padding: 4px 8px;
-            border: 2px solid transparent;
-            transition: border 0.2s;
-        }
-
-        /* Hover remains red border */
-        .official-bar .dropdown-btn:hover {
-            border: 2px solid var(--brand-red);
-        }
-
-        .official-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            color: #333; /* Rest of the dropdown text stays dark/black */
-            border: 1px solid #ccc;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            padding: 16px;
-            width: 400px;
-            z-index: 1002;
-        }
-
-        .official-dropdown.active {
-            display: block;
-        }
-
-        .official-dropdown p {
-            margin-bottom: 12px;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        .red-highlight {
-            color: var(--brand-red);
-        }
-
-        .red-link {
-            color: var(--brand-red);
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .red-link:hover {
-            text-decoration: underline;
-        }
-
-        /* --- MAIN NAVIGATION --- */
-        .main-nav {
-            position: sticky;
-            top: 0;
-            width: 100%;
-            background: rgba(5, 5, 10, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            z-index: 1000;
-            padding: 20px 0;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-content a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-            position: relative;
-        }
-
-        .nav-content a:hover {
-            color: var(--accent);
-            text-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        .nav-content a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .nav-content a:hover::after {
-            width: 100%;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            padding: 0 20px;
-            background: radial-gradient(circle at center, rgba(141, 136, 219, 0.15) 0%, var(--bg-dark) 60%);
-        }
-
-        .stars-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 90px 40px, var(--accent), rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 160px 120px, #fff, rgba(0,0,0,0));
-            background-size: 200px 200px;
-            opacity: 0.3;
-            animation: drift 100s linear infinite;
-            z-index: 1;
-        }
-
-        @keyframes drift {
-            from { background-position: 0 0; }
-            to { background-position: -1000px 500px; }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            transform: translateY(30px);
-            opacity: 0;
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-            max-width: 900px;
-        }
-
-        .hero-content.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 700;
-            letter-spacing: -1px;
-            line-height: 1.2;
-            margin-bottom: 25px;
-            background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 10px 30px var(--accent-glow);
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: white;
-            padding: 16px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--accent-glow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 25px var(--accent-glow);
-            background-color: #9d98e8;
-        }
-
-        /* --- SCROLL SECTIONS --- */
-        .section {
-            padding: 120px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .glass-card {
-            background: var(--bg-panel);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 40px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .glass-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .glass-card:hover {
-            border-color: rgba(141, 136, 219, 0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 40px var(--accent-glow) inset;
-            transform: translateY(-5px);
-        }
-
-        .card-image-placeholder {
-            width: 100%;
-            height: 300px;
-            border-radius: 16px;
-            background: linear-gradient(45deg, #1a1a2e, #2a2a4e);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 4rem;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .card-image-placeholder::after {
-            content: '📚';
-            animation: float 4s ease-in-out infinite;
-            filter: drop-shadow(0 0 20px var(--accent));
-        }
-
-        .card-image-placeholder.digital::after { content: '💾'; }
-        
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(2deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-
-        .glass-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-
-        .glass-card p {
-            color: var(--text-muted);
-            line-height: 1.6;
-            font-size: 1.1rem;
-        }
-
-        @media (max-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr; }
-            .nav-content { gap: 20px; flex-wrap: wrap; }
-            .official-bar { font-size: 12px; }
-            .official-logo { height: 12px; }
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Official Top Bar -->
     <div class="official-bar">
         <div class="official-bar-content">
             <img src="https://www.boomgaard.cn/images/favicon.svg" onerror="this.onerror=null; this.src='https://www.boomgaard.cn/images/favicon128.png';" alt="Boomgaard Logo" class="official-logo">
@@ -412,7 +67,6 @@
         </div>
     </div>
 
-    <!-- Main Navigation -->
     <nav class="main-nav">
         <div class="nav-content">
             <a href="#home">Home</a>
@@ -422,7 +76,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <main>
         <section id="home" class="hero">
             <div class="stars-bg"></div>
@@ -433,7 +86,6 @@
             </div>
         </section>
 
-        <!-- Content Sections with Scroll Animations -->
         <section class="section" id="digital">
             <h2 class="section-title">Digital Works</h2>
             <div class="grid-2">
@@ -490,7 +142,6 @@
 </footer>
 
     <script>
-        // 1. Official Bar Dropdown Toggle
         const dropdownToggle = document.getElementById('dropdownToggle');
         const officialDropdown = document.getElementById('officialDropdown');
 
@@ -505,7 +156,6 @@
             }
         });
 
-        // Close dropdown when clicking outside
         document.addEventListener('click', (event) => {
             if (!dropdownToggle.contains(event.target) && !officialDropdown.contains(event.target)) {
                 officialDropdown.classList.remove('active');
@@ -513,7 +163,6 @@
             }
         });
 
-        // 2. Scroll Animations (Intersection Observer)
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -537,5 +186,6 @@
             document.querySelector('.hero-content').classList.add('visible');
         });
     </script>
+
 </body>
 </html>

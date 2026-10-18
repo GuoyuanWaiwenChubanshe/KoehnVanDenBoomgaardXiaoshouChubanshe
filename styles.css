@@ -16,13 +16,12 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-body {
+html {
     background-color: var(--bg-dark);
-    /* Seamless page-wide background glow */
-    background-image: radial-gradient(circle at 50% 10%, rgba(141, 136, 219, 0.15) 0%, var(--bg-dark) 70%);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100vw 100vh;
+}
+
+body {
+    background-color: transparent;
     color: var(--text-main);
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -197,7 +196,8 @@ body {
     text-align: center;
     position: relative;
     padding: 0 20px;
-    /* Background removed completely to prevent hard lines */
+    /* The light circle fades to transparent smoothly so it doesn't cut off */
+    background: radial-gradient(circle at center 40%, rgba(141, 136, 219, 0.15) 0%, transparent 65%);
 }
 
 .hero-content {

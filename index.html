@@ -152,7 +152,7 @@
   </div>
 </footer>
 
-<script>
+    <script>
         const dropdownToggle = document.getElementById('dropdownToggle');
         const officialDropdown = document.getElementById('officialDropdown');
 
@@ -188,14 +188,11 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.reveal, .hero-content').forEach(el => {
+        // Updated targets for the new layout
+        document.querySelectorAll('.reveal, .hero-top, .hero-placeholder, .hero-bottom').forEach(el => {
             observer.observe(el);
         });
-
-        window.addEventListener('load', () => {
-            document.querySelector('.hero-content').classList.add('visible');
-        });
-</script>
+    </script>
 
 </body>
 </html>

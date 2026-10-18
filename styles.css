@@ -196,7 +196,7 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
-    padding: 100px 20px 60px; /* Top padding for breathing room, bottom padding for button */
+    padding: 50px 20px 60px; /* Top padding for breathing room, bottom padding for button */
     background: none;
 }
 

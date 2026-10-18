@@ -16,25 +16,16 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-html {
-    background-color: var(--bg-dark);
-}
-
 body {
-    background-color: transparent;
+    background-color: var(--bg-dark);
+    /* Seamless page-wide background glow */
+    background-image: radial-gradient(circle at 50% 10%, rgba(141, 136, 219, 0.15) 0%, var(--bg-dark) 70%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
     color: var(--text-main);
     overflow-x: hidden;
     scroll-behavior: smooth;
-}
-
-/* Fixed soft glow that covers the whole page seamlessly */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background: radial-gradient(circle at 50% 30%, rgba(141, 136, 219, 0.12) 0%, transparent 60%);
-    z-index: -2;
-    pointer-events: none;
 }
 
 /* Fixed seamless stars */
@@ -148,27 +139,15 @@ body::before {
     text-decoration: underline;
 }
 
+/* Standard flow navbar that scrolls off the page */
 .main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
+    background: rgba(15, 15, 25, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     z-index: 1000;
     padding: 20px 0;
-}
-
-/* Creates a smooth fading background and blur for the nav bar */
-.main-nav::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(5, 5, 10, 0.95) 0%, rgba(5, 5, 10, 0) 100%);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    z-index: -1;
-    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-    pointer-events: none;
 }
 
 .nav-content {
@@ -217,8 +196,8 @@ body::before {
     align-items: center;
     text-align: center;
     position: relative;
-    padding: 80px 20px 0;
-    /* Background removed to allow seamless page-wide glow */
+    padding: 0 20px;
+    /* Background removed completely to prevent hard lines */
 }
 
 .hero-content {

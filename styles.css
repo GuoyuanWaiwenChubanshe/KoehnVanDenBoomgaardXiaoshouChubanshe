@@ -189,7 +189,7 @@ body {
 }
 
 .hero {
-    height: 100vh;
+    height: 100vh; /* Kept at original height */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -198,8 +198,8 @@ body {
     position: relative;
     padding: 0 20px;
     
-    /* SMALLER CIRCLE: Fades out completely at 50% instead of 70% */
-    background: radial-gradient(circle at center 40%, rgba(141, 136, 219, 0.15) 0%, rgba(5, 5, 10, 0) 50%);
+    /* TINY CIRCLE: Fixed at 300px radius so it can NEVER touch the bottom edge */
+    background: radial-gradient(circle 300px at center 40%, rgba(141, 136, 219, 0.15) 0%, rgba(5, 5, 10, 0) 100%);
 }
 
 .hero-content {

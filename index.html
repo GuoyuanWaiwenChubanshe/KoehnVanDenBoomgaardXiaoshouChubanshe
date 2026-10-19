@@ -70,28 +70,30 @@
 
     <nav class="main-nav">
         <div class="nav-content">
-            <a href="https://fiction.boomgaard.org">Home</a>
-            <a href="https://fiction.boomgaard.org/works/digital">Digital Works</a>
-            <a href="https://fiction.boomgaard.org/works/physical">Physical Works</a>
-            <a href="https://fiction.boomgaard.org/contact">Contact</a>
+            <a href="#home">Home</a>
+            <a href="#digital">Digital Works</a>
+            <a href="#physical">Physical Works</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <main>
         <section id="home" class="hero">
-
+            <!-- Top Text Area -->
             <div class="hero-top">
                 <span class="hero-eyebrow">Köhn-van den Boomgaard Fictional Writings Press</span>
                 <h1>The Library</h1>
                 <p>Welcome to the sanctuary of our imagination. Continue your journey to discover enchanting, magical stories that will capture your heart, spark your wonder, and leave you utterly captivated.</p>
             </div>
 
+            <!-- Central Placeholder -->
             <div class="hero-placeholder">
                 <div class="placeholder-content">
                     <span>Central Media Placeholder</span>
                 </div>
             </div>
 
+            <!-- Bottom Button -->
             <div class="hero-bottom">
                 <a href="#digital" class="btn-primary">Enter the Library</a>
             </div>
@@ -188,7 +190,6 @@
             });
         }, observerOptions);
 
-        // Updated targets for the new layout
         document.querySelectorAll('.reveal, .hero-top, .hero-placeholder, .hero-bottom').forEach(el => {
             observer.observe(el);
         });

@@ -278,9 +278,9 @@ body {
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 600px;
+    max-width: 900px;
     flex: 1;
-    max-height: 650px;
+    max-height: 400px;
     border: 2px dashed rgba(141, 136, 219, 0.3);
     border-radius: 32px;
     background: rgba(15, 15, 25, 0.4);

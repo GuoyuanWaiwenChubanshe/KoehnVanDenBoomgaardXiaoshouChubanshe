@@ -197,7 +197,7 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
-    padding: 100px 20px 40px; /* Kept top padding to keep eyebrow in same spot */
+    padding: 40px 20px 40px; /* Kept top padding to keep eyebrow in same spot */
     background: none;
 }
 

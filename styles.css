@@ -201,7 +201,6 @@ body {
     background: none;
 }
 
-/* MASSIVE GLOW: Centered behind the content */
 .hero::before {
     content: '';
     position: absolute;
@@ -222,7 +221,7 @@ body {
     opacity: 0;
     transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
     max-width: 900px;
-    margin-bottom: 30px; /* Space between text and placeholder */
+    margin-bottom: 30px;
 }
 
 .hero-top.visible {
@@ -240,17 +239,14 @@ body {
 }
 
 .hero h1 {
-    font-size: 80px; 
+    font-size: 80px;
     font-weight: 700;
     letter-spacing: -1px;
-    
-    /* Pull text up while ensuring gradient covers the bottom of letters */
-    line-height: 1.15; 
-    padding-bottom: 5px; 
-    margin-top: 0px; 
-    margin-bottom: 0px; 
-    display: inline-block; 
-    
+    line-height: 1.15;
+    padding-bottom: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: inline-block;
     background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -265,14 +261,13 @@ body {
     text-align: center;
 }
 
-/* Central Placeholder dynamically fills the space */
 .hero-placeholder {
     position: relative;
     z-index: 2;
     width: 100%;
     max-width: 800px;
-    flex: 1; /* Takes up remaining vertical space */
-    max-height: 450px; /* Prevents it from getting too tall on huge screens */
+    flex: 1;
+    max-height: 650px;
     border: 2px dashed rgba(141, 136, 219, 0.3);
     border-radius: 32px;
     background: rgba(15, 15, 25, 0.4);
@@ -285,7 +280,7 @@ body {
     opacity: 0;
     transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    margin-bottom: 13px; /* Space between placeholder and button */
+    margin-bottom: 20px;
 }
 
 .hero-placeholder.visible {

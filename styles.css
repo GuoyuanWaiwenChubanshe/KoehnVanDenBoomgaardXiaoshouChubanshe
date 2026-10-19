@@ -55,7 +55,8 @@ body {
     background-color: var(--official-bg);
     color: #333;
     font-size: 14px;
-    padding: 8px 16px;
+    height: 28px;
+    padding: 0px 16px;
     display: flex;
     align-items: center;
     position: relative;
@@ -68,6 +69,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     gap: 12px;
+    height: 28px;
     width: 100%;
 }
 

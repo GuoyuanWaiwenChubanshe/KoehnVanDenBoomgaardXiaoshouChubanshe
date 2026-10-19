@@ -197,7 +197,7 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
-    padding: 50px 20px 40px; /* Kept top padding to keep eyebrow in same spot */
+    padding: 40px 20px 40px; /* Kept top padding to keep eyebrow in same spot */
     background: none;
 }
 
@@ -235,7 +235,7 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-muted);
-    margin-bottom: 10px; 
+    margin-bottom: 15px; 
     letter-spacing: 0.5px;
 }
 

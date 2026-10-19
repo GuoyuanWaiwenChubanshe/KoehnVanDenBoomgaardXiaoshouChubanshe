@@ -187,17 +187,16 @@ body {
     width: 100%;
 }
 
-/* HERO SECTION - APPLE STYLE LAYOUT */
 .hero {
     height: 100vh; 
-    min-height: 700px; /* Prevents squishing on very short screens */
+    min-height: 700px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Stacks from top */
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
     position: relative;
-    padding: 40px 20px 40px; /* Kept top padding to keep eyebrow in same spot */
+    padding: 40px 20px 40px;
     background: none;
 }
 
@@ -234,7 +233,7 @@ body {
     font-size: 21px;
     font-weight: 600;
     color: var(--text-muted);
-    margin-bottom: 15px; 
+    margin-bottom: 10px; 
     letter-spacing: 0.5px;
 }
 

@@ -92,13 +92,13 @@ body {
     display: flex;
     align-items: center;
     gap: 4px;
-    padding: 4px 8px;
-    border: 2px solid transparent;
+    padding: 3px 6px;
+    border: 1px solid transparent;
     transition: border 0.2s;
 }
 
 .dropdown-btn:hover {
-    border: 2px solid var(--brand-red);
+    border: 1px solid var(--brand-red);
 }
 
 .official-dropdown {
